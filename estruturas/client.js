@@ -28,7 +28,7 @@ class client extends Client {
             }
 
         })
-
+        
         this.init = async function init() {
             ['command'].forEach(event => require(`../bot/handlers/${event}`)(this))
             this.login(this.config.token)
@@ -38,3 +38,4 @@ class client extends Client {
 }
 
 module.exports = client
+
