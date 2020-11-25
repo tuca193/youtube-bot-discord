@@ -18,7 +18,7 @@ module.exports = {
             .setTitle(`Informações do emoji: ${emojis.name}`)
             .setThumbnail(emojis.url)
             .addField(`É animado ?`, emojis.animated ? 'Sim' : 'Não')
-            .addField(`Link: `, `[Clique aqui](${emojis.url})`) // No vídeo #5 errei como faz, quem quiser ver agora.
+            .addField(`Link: `, `[Clique aqui](${emojis.url})`) 
             .addField(`Criado dia: `, utc(emojis.createdAt).format('LL'))
             .addField(`ID do emoji: `, `\`${emojis.id}\``)
             .addField(`Servidor que o emoji se encontra: `, emojis.guild.name)
