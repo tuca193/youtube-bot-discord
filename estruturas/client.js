@@ -1,4 +1,5 @@
 const { Client, Collection } = require('discord.js')
+const firebase = require('firebase')
 
 class client extends Client {
     constructor(options = {}) {
@@ -10,6 +11,12 @@ class client extends Client {
         this.config = require('./config')
 
         this.on('message', async (message) => {
+            const prefix = await firebase.default.database().ref(`Guilds/${message.guild.id}`).once('value')
+            if(prefix.val().prefix != null) {
+                this.prefix = prefix.val().prefix
+            } else {
+                this.prefix = '!'
+            }
             const args = message.content.trim().slice(this.prefix.length).split(/ +/g)
             const cmd = args.shift().toLowerCase()
             const command = this.commands.get(cmd) || this.commands.get(this.aliases.get(cmd))
