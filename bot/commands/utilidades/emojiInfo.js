@@ -23,6 +23,6 @@ module.exports = {
             .addField(`ID do emoji: `, `\`${emojis.id}\``)
             .addField(`Servidor que o emoji se encontra: `, emojis.guild.name)
             message.channel.send(embed)
-        } // sempre isso 
+        } 
     }
 }
