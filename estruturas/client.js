@@ -1,4 +1,4 @@
-const { Client, Collection } = require('discord.js')
+const { Client, Collection, MessageEmbed } = require('discord.js')
 const firebase = require('firebase')
 
 class client extends Client {
@@ -9,6 +9,22 @@ class client extends Client {
         this.commands = new Collection()
         this.aliases = new Collection()
         this.config = require('./config')
+
+        this.on('guildMemberAdd', async (member) => {
+            const db = require('firebase').default.database()
+            
+            const channel = await db.ref(`guilds/welcome/${member.guild.id}`).once('value')
+
+            if(!channel.val().id) {
+                return;
+            } else {
+                const embed = new MessageEmbed()
+                .setTitle(`Bem vindo ${member.user.username}! `)
+                .setDescription(`Espero que divirta-se no servidor!`)
+                .setFooter(`Evento GuildMemberAdd`, this.user.avatarURL())
+                this.channels.cache.get(channel.val().id).send(embed) 
+            }
+        })
 
         this.on('message', async (message) => {
             const prefix = await firebase.default.database().ref(`Guilds/${message.guild.id}`).once('value')

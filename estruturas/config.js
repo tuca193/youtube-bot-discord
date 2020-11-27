@@ -1,5 +1,5 @@
 module.exports = {
-    token: 'NzMyNzkyMzI4ODU4NjMyMTky.Xw5wCQ.l7oq7fDPNaivE7GiOpKneY56VuA',
+    token: 'NzMyNzkyMzI4ODU4NjMyMTky.Xw5wCQ.oRnxsl1tZ-rSK2BKTLjl6CfFuxM',
     firebaseConfig: {
         apiKey: "AIzaSyAlrGKd-GOQg3ziR6tBjjJJYw9m7kX63h0",
         authDomain: "kaguya-18e68.firebaseapp.com",

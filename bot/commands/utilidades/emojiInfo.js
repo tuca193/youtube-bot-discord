@@ -12,7 +12,7 @@ module.exports = {
         } else {
             const emoji = args[0].trim().split(':')[2].slice(0, 18)
 
-            const emojis = client.emojis.cache.find(emoje => emoje.id == emoji)|| client.emojis.cache.get(args[0])
+            const emojis = client.emojis.cache.find(emoje => emoje.id == emoji)
 
             const embed = new MessageEmbed()
             .setTitle(`Informações do emoji: ${emojis.name}`)
